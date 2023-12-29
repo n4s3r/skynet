@@ -1,0 +1,7 @@
+#!/bin/bash
+sudo apt install net-tools python3-nmap apache2 isc-dhcp-server bind9 python3-pip php sox -y
+sudo pip install --pre scapy[complete]
+sudo pip install pynput art
+sudo a2enmod ssl
+# sudo a2enmod cgid
+# Habilitar execucion de los .py en las webs
