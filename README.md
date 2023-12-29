@@ -16,16 +16,25 @@ The development of this project is in pause. It's functional, but there are few 
 
 This tool is only available now for linux hosts. In a future probably it can be used in windows too.
 To install it, execute this in your terminal:
-'''bash
+
+Claro, aquí tienes un ejemplo de un bloque de código en Bash para un archivo README.md:
+
+```bash
 git clone https://github.com/n4s3r/skynet.git
 cd skynet
 chmod +x requirements
 sudo ./requirements
-'''
+```
 If your linux it's not configured to be able to be used like a router, you'll need to execute this:
-'''bash
+```bash
+# To enable IP forwarding
+echo 'net.ipv4.ip_forward=1' | sudo tee -a /etc/sysctl.conf
+sudo sysctl -p
+# To configure NAT
+sudo iptables -t nat -A POSTROUTING -o eth0 -j MASQUERADE
+sudo sh -c 'iptables-save > /etc/iptables/rules.v4'  # To do it persistent
 
-'''
+```
 
 ### Ejemplos de Uso
 
