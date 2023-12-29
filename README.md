@@ -1,3 +1,4 @@
+![UI](screenshots/interface.png)
 # Skynet
 
 Skynet is a hacking tool to scale privileges inside any LAN. It uses some exploits to take down legitimate network DHCP server and succesfully replace it by a rogue DHCP server, and then start spoofing another important network services like DNS and HTTP.
@@ -23,6 +24,7 @@ Claro, aquí tienes un ejemplo de un bloque de código en Bash para un archivo R
 git clone https://github.com/n4s3r/skynet.git
 cd skynet
 chmod +x requirements
+chmod +x skynet
 sudo ./requirements
 ```
 If your linux it's not configured to be able to be used like a router, you'll need to execute this:
@@ -36,9 +38,9 @@ sudo sh -c 'iptables-save > /etc/iptables/rules.v4'  # To do it persistent
 
 ```
 
-### Ejemplos de Uso
+### Usage
 
-Ejemplos prácticos de cómo utilizar el proyecto.
+It is highly recomended to execute it in a clean virtual machine, to avoid problems with changing the MAC, and avoid problems with dhclient files (some files can become corrupted).
 
 ## Documentación Adicional
 
@@ -48,9 +50,15 @@ Enlaces a documentación más extensa si es necesario.
 
 Instrucciones para configurar o personalizar el proyecto.
 
-## Cómo Contribuir
+## How to contribute
 
 Pautas claras sobre cómo los usuarios pueden contribuir al proyecto.
+
+## Feature Requests
+Have an idea for a new feature? Submit a feature request and use our template to provide the necessary details.
+
+## Documentation Contributions
+Feel free to improve or expand our documentation. Make changes in the `docs` directory.
 
 ## Licencia
 
