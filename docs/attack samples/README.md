@@ -48,7 +48,7 @@ sudo ./skynet --leave-a-message "t-P0wned HAHA" --attack
 ```
 
 ### Image
-![Passive internet DoS with message](images/passive-internet-DoS-with-message.png)
+![Passive internet DoS with message](../images/passive-internet-DoS-with-message.png)
 
 ## Command 4: IPv6 attack
 
@@ -61,4 +61,4 @@ sudo ./skynet --ipv6 --no-draw --continued-attack
 ```
 
 ### Image
-![IPv6 attack](images/IPv6-attack.png)
+![IPv6 attack](../images/IPv6-attack.png)
