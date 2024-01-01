@@ -20,7 +20,7 @@ sudo ./skynet --attack --create-pool --all-queries-to-this-host --create-trojan-
 ```
 
 ### Image
-![spoofing](images/website-spoofing.png)
+![spoofing](../images/website-spoofing.png)
 
 ## Command 2: Remote Code Execution
 
