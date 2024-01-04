@@ -7,7 +7,7 @@ As developers, the ability to collaborate through video is an essential part of 
 Upload a video to help maintainers quickly understand and reproduce a reported bug.
 
 [![Bug Reproduction](https://img.youtube.com/vi/VIDEO_ID_1/0.jpg)](https://www.youtube.com/watch?v=VIDEO_ID_1)
-
+https://github.com/n4s3r/skynet/raw/main/docs/demos/bypass+check.mp4
 Click on the image to view the full bug reproduction.
 
 ## Demo 2: Providing Context on Pull Requests
