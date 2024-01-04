@@ -9,7 +9,11 @@ Upload a video to help maintainers quickly understand and reproduce a reported b
 [![Bug Reproduction](https://img.youtube.com/vi/VIDEO_ID_1/0.jpg)](https://www.youtube.com/watch?v=VIDEO_ID_1)
 
 
-![Alt Text](bypass+check.mp4)
+<video width="320" height="240" controls>
+  <source src="bypass+check.mp4" type="video/mp4">
+  Tu navegador no soporta el tag de video.
+</video>
+
 Click on the image to view the full bug reproduction.
 
 ## Demo 2: Providing Context on Pull Requests
