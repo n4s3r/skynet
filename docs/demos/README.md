@@ -6,13 +6,8 @@ As developers, the ability to collaborate through video is an essential part of 
 
 Upload a video to help maintainers quickly understand and reproduce a reported bug.
 
-[![Bug Reproduction](https://img.youtube.com/vi/VIDEO_ID_1/0.jpg)](https://www.youtube.com/watch?v=VIDEO_ID_1)
+[![Bug Reproduction](https://img.youtube.com/vi/VIDEO_ID_1/0.jpg)](https://www.youtube.com/watch?v=D9CLhQdLp8w)
 
-
-<video width="320" height="240" controls>
-  <source src="bypass+check.mp4" type="video/mp4">
-  Tu navegador no soporta el tag de video.
-</video>
 
 Click on the image to view the full bug reproduction.
 
