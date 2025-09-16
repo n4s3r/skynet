@@ -1,0 +1,80 @@
+#!/usr/bin/env python3
+from menu import *
+from getpass import getuser
+from argparse import ArgumentParser, ArgumentError
+import art
+
+
+def main():
+    parser = ArgumentParser(description='''Welcome to skynet, your weapon, your power.
+    Use "-1" to exit one menu, "IP" to change IP version, and ctrl+c to exit the program. 
+                                        ''',
+                            epilog="That's all. Email polblanco@insestatut.cat for resolving errors.")
+    parser.add_argument('--no-draw', action='store_true')
+    parser.add_argument('--no-get-ip', action='store_true')
+    parser.add_argument('--console', action='store_true')
+    parser.add_argument('--ipv6', action='store_true')
+    parser.add_argument('-p', action='store_true')
+    parser.add_argument('--sound', '-s', action='store_true')
+    parser.add_argument('--version',  '-V', action='store_true')
+    parser.add_argument('--skynet', action='store_true')
+    parser.add_argument('--sniff-output')
+    parser.add_argument('--stop', action='store_true', help='Used to stop all the service if you press Ctrl+c to exit')
+    # Attacks
+    parser.add_argument('--malformed-attack', help="Introduce the seconds")
+    for att in dir(functions.Attacks):
+        if att[0].isupper():
+            try:
+                exec(f"parser.add_argument('--{att.lower().replace('_', '-')}', action='store_true', help='{eval(f'functions.Attacks.{att}.help')}')")
+            except ArgumentError:
+                pass
+    # DHCP
+    parser.add_argument('--leave-a-message',
+                        help='Used to draw a drawing in the DHCP leases. To specify the text use "t-(some text)" and, to specify the payload use "p-(payload number)".')
+    for op in dir(functions.Post_attack.DHCP):
+        if op[0].isupper():
+            try:
+                exec(f"parser.add_argument('--{op.lower().replace('_', '-')}', action='store_true', help='{eval(f'functions.Post_attack.DHCP.{op}.help')}')")
+            except ArgumentError:
+                pass
+    # DNS
+    parser.add_argument('--all-queries-to-this-host',
+                        action='store_true',
+                        help="Used to create a DNS zone to redirect all queries to this host post attack")
+    for op in dir(functions.Post_attack.DNS):
+        if op[0].isupper():
+            try:
+                exec(f"parser.add_argument('--{op.lower().replace('_', '-')}', help='{eval(f'functions.Post_attack.DNS.{op}.help')}')")
+            except ArgumentError:
+                pass
+    # HTTP
+    parser.add_argument('--delete-all-webs', action='store_true', help="Used to delete al in the apache directory")
+    for op in dir(functions.Post_attack.HTTP):
+        if op[0].isupper():
+            try:
+                exec(f"parser.add_argument('--{op.lower().replace('_', '-')}', help='{eval(f'functions.Post_attack.HTTP.{op}.help')}')")
+            except ArgumentError:
+                pass
+    args = parser.parse_args()
+    if args.p:
+        art.tprint(f"{Fore.GREEN}Skynet system activated...", font="random")
+        exit()
+    if args.skynet:
+        skynet()
+        exit()
+    if args.version:
+        print(f"{Fore.GREEN}By {Fore.RED + Style.BRIGHT}Naser_ORT{Style.RESET_ALL}{Fore.LIGHTCYAN_EX} v0.1")
+        exit(0)
+    if 'root' not in getuser():
+        exit('You must run this as root.')
+    try:
+        if args.console:
+            console(args)
+        else:
+            main_menu(args)
+    except KeyboardInterrupt:
+        functions.Quit(args.sound, args.stop)
+
+
+if __name__ == '__main__':
+    main()
